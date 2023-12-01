@@ -9,3 +9,20 @@ export const options = {
       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwMDlkMzU2ZjJlOTI3ZjBlNzdmYzNjY2ZkMzk1YTdlNSIsInN1YiI6IjY1Njg4MzFkZmI1Mjk5MDBhZmQ3MTcyZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.O_y2X-zg4WmVl1qiv7a4sqAAXUQcWh0YX77SxGbVgG0'
     }
   };
+
+  export const IMG_CDN_URL = "https://image.tmdb.org/t/p/w500";
+
+  export const languagesArray = [
+    {
+      identifier : "en",
+      name : "English",
+    },
+    {
+      identifier : "hindi",
+      name : "Hindi",
+    },
+    {
+      identifier : "marathi",
+      name : "Marathi",
+    }
+  ] 

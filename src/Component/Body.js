@@ -26,7 +26,6 @@ function Body() {
 
     return () => {
       unsubscribe();
-      console.log("body unmount")
     }
   }, [])
 

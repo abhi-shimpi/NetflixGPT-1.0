@@ -6,7 +6,6 @@ import { useSelector } from 'react-redux'
 const MainContainer = () => {
 
     const movieDetails = useSelector((store)=>store.moviesSlice);
-    console.log(movieDetails)
 
     if(!movieDetails) return;
 

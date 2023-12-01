@@ -15,9 +15,19 @@
 - Created userDetails slice 
 - Dispatched userdetails on auth change
 - Navigated to browse page on sign in and on login page on sign out
+- Creared movies Slice 
+- Made custom hook to fetch nowplaying movies
+- Made MainContainer 
+- Made VideoTile and added title there
+- Made VideoContainer and played video of first movie coming in response
+- Made SecondaryContainer
+- Made MoviesList 
+- Made Movie Card 
+- Made hooks for Popular , TopRated , and Upcoming movies and called them.
 
 # TO Do
 - Checkout navigate in Body (that bug)
+- Align video title and movies list
 
 # Learnings
 - Host application on production
@@ -30,6 +40,7 @@
     Good Hyigene
 - There should not be hardcoded url or path , keep it in constant file
 - Early return
+- constants.langkey.search -> will give a error
 
 
 # Question to search

@@ -3,13 +3,10 @@ import { options } from "../constants/constant";
 
 const useMovieTrailer = (movieId) =>{
     const [videoTrailerKey,setVideoTrailerKey] = useState(null);
-    console.log(movieId)
 
     const fetchMovieVideo = async() => {
         const videoData = await fetch("https://api.themoviedb.org/3/movie/"+movieId+"/videos?language=en-US", options);
         const jsonData = await videoData?.json();
-
-        console.log(jsonData);
 
         const movieTrailer = jsonData?.results?.filter((movie)=>{
             return movie?.type === "Trailer";
