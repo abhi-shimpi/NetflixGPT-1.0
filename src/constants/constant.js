@@ -6,7 +6,7 @@ export const options = {
     method: 'GET',
     headers: {
       accept: 'application/json',
-      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwMDlkMzU2ZjJlOTI3ZjBlNzdmYzNjY2ZkMzk1YTdlNSIsInN1YiI6IjY1Njg4MzFkZmI1Mjk5MDBhZmQ3MTcyZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.O_y2X-zg4WmVl1qiv7a4sqAAXUQcWh0YX77SxGbVgG0'
+      Authorization: "Bearer " + process.env.REACT_APP_TMDB_KEY
     }
   };
 
@@ -25,4 +25,4 @@ export const options = {
       identifier : "marathi",
       name : "Marathi",
     }
-  ] 
+  ];

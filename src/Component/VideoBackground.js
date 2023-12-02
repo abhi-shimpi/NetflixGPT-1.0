@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { options } from '../constants/constant'
 import useMovieTrailer from '../hooks/useMovieTrailer'
+import { useSelector } from 'react-redux';
 
 function VideoBackground({movieId}) {
-    const videoTrailerKey = useMovieTrailer(movieId);
+  useMovieTrailer(movieId);
+  const videoTrailerKey = useSelector((strore)=>strore.moviesSlice.videoTrailer);
  
   return (
     <div>

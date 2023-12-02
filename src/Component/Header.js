@@ -10,6 +10,8 @@ function Header() {
 
   const userDetails = useSelector((store) => store.userDetails);
   const gptSearch = useSelector((store) => store.gptSlice.gptSearch);
+  const langKey = useSelector((store) => store.configureSlice.language);
+
   const dispatch = useDispatch();
 
   const handleSignOut = () => {
@@ -29,7 +31,7 @@ function Header() {
 
   return (
     <div className='fixed w-full flex justify-between px-4 py-2 items-center z-50'>
-      <div className='w-[11.5rem] h-[6rem] '>
+      <div className='w-[11.5rem] h-[6rem]'>
         <img className='w-[100%] h-[100%]' src={app_logo} alt='Netflix logo'></img>
       </div>
       {
@@ -37,7 +39,7 @@ function Header() {
         <div className='flex gap-4'>
           {
             gptSearch &&
-            <select className='p-3 rounded-md' onChange={(e) => { handleLanguageChange(e) }}>
+            <select className='p-3 rounded-md' value={langKey} onChange={(e) => { handleLanguageChange(e) }}>
               {
                 languagesArray.map((lang) => (
                   <option key={lang.identifier} value={lang.identifier}>{lang.name}</option>
@@ -45,7 +47,7 @@ function Header() {
               }
             </select>
           }
-          <button className='p-2 rounded-md bg-gray-500 text-white' onClick={handleGptSearch}>GPT Search</button>
+          <button className='p-2 rounded-md bg-gray-500 text-white' onClick={handleGptSearch}>{!gptSearch ? "GPT Search": "HomePage"}</button>
           <button className='p-2 rounded-md bg-red-600 text-white' onClick={handleSignOut}>Sign Out</button>
         </div>
       }

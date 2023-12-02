@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react";
 import { options } from "../constants/constant";
+import { useDispatch, useSelector } from "react-redux";
+import { addVideoTrailer } from "../utils/moviesSlice";
 
 const useMovieTrailer = (movieId) =>{
-    const [videoTrailerKey,setVideoTrailerKey] = useState(null);
+    const dispatch = useDispatch();
+
+    const videoTrailer = useSelector((strore)=>strore.moviesSlice.videoTrailer);
 
     const fetchMovieVideo = async() => {
         const videoData = await fetch("https://api.themoviedb.org/3/movie/"+movieId+"/videos?language=en-US", options);
@@ -12,15 +16,14 @@ const useMovieTrailer = (movieId) =>{
             return movie?.type === "Trailer";
         })
         
-        movieTrailer ? setVideoTrailerKey(movieTrailer[0]?.key) : setVideoTrailerKey(jsonData.results[0]);
+        movieTrailer ? dispatch(addVideoTrailer(movieTrailer[0]?.key)) : dispatch(addVideoTrailer(jsonData.results[0]));
     }
 
     useEffect(()=>{
         if(!movieId)return;
-        fetchMovieVideo();
+        console.log(videoTrailer);
+        !videoTrailer && fetchMovieVideo();
     },[movieId]);
-
-    return videoTrailerKey;
 }
 
 export default useMovieTrailer;

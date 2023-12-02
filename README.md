@@ -23,11 +23,16 @@
 - Made SecondaryContainer
 - Made MoviesList 
 - Made Movie Card 
-- Made hooks for Popular , TopRated , and Upcoming movies and called them.
+- Made hooks for Popular,TopRated , and Upcoming movies and called them.
+- Install open ai
+- open ai configuration 
+- Making customised query
+- fetching data by passing query through open ai fetch function
 
 # TO Do
 - Checkout navigate in Body (that bug)
 - Align video title and movies list
+- Checkout .env working
 
 # Learnings
 - Host application on production
@@ -41,7 +46,10 @@
 - There should not be hardcoded url or path , keep it in constant file
 - Early return
 - constants.langkey.search -> will give a error
-
+- <select  value={langKey} > -> selected language
+- REACT_APP -> To make it work with React or to identify these keys for React
+    - These env variables are seted on server where you have hosted your app
+- Memoization 
 
 # Question to search
 - What is difference between 100% and 100vh
