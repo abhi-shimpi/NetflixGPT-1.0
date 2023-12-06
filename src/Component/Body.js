@@ -5,6 +5,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../utils/firebaseConfiguration";
 import { useDispatch } from 'react-redux';
 import { addUser, removeUser } from '../utils/userSlice';
+import {  ToastContainer } from 'react-toastify';
 
 
 function Body() {
@@ -16,7 +17,7 @@ function Body() {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         const { uid, email, displayName } = user;
-        dispatch(addUser({ uid, email, displayName }))
+        dispatch(addUser({ uid, email, displayName })) //For sign In
         navigate("/browse");
       } else {
         dispatch(removeUser());
@@ -32,6 +33,7 @@ function Body() {
   return (
     <div className='h-full'>
       <Header />
+      <ToastContainer />
       <Outlet></Outlet>
     </div>
   )

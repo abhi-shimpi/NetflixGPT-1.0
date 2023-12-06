@@ -5,6 +5,9 @@ import Login from './Component/Login';
 import Browse from './Component/Browse';
 import appStore from './utils/appStore';
 import {Provider} from "react-redux"
+import LanguageWiseMovies from './Component/LanguageWiseMovies';
+import FavouriteMovies from './Component/FavouriteMovies';
+import GptSearch from './Component/GptSearch';
 
 const router = createBrowserRouter([
   {
@@ -18,7 +21,19 @@ const router = createBrowserRouter([
       {
         path: "/browse",
         element: <Browse />
-      }
+      },
+      {
+        path: "/language-wise-movies/:langId",
+        element: <LanguageWiseMovies/>
+      },
+      {
+        path: "/gpt-search",
+        element: <GptSearch/>
+      },
+      {
+        path: "/my-list",
+        element: <FavouriteMovies/>
+      },
     ]
   }
 ])

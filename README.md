@@ -33,6 +33,14 @@
 - Checkout navigate in Body (that bug)
 - Align video title and movies list
 - Checkout .env working
+- Ask user about their openai key to use
+- Create error page
+
+- More sections on header
+        - TV shows ...
+- mouseEnter feature
+- Video Play component
+- Sign In new design
 
 # Learnings
 - Host application on production
@@ -50,6 +58,15 @@
 - REACT_APP -> To make it work with React or to identify these keys for React
     - These env variables are seted on server where you have hosted your app
 - Memoization 
+- default is for mobile phone
+    - sm- is for medium devices/tabs
+    - md - is for desktops
+- m-auto left-0 right-0 -> TO ceterise any absolute div
+- TO create project on Firebase 
+    - GO to firebase wesite
+    - Create new project
+- NavLink - classname for active route
+
 
 # Question to search
 - What is difference between 100% and 100vh
@@ -99,3 +116,44 @@ Implemented Sign out
 Update Profile
 BugFix: Sign up user displayName and profile picture update
 BugFix: if the user is not logged in Redirect /browse to Login Page and vice-versa
+Unsubscibed to the onAuthStateChanged callback - should be called when component get unmounted to improve performance of app
+Add hardcoded values to the constants file
+Regiter TMDB API & create an app & get access token
+Get Data from TMDB now playing movies list API
+Custom Hook for Now Playing Movies
+Create movieSlice
+Update Store with movies Data
+Planning for MainContainer & secondary container
+Fetch Data for Trailer Video
+Update Store with Trailer Video Data
+Embedded the Yotube video and make it autoplay and mute
+Tailwind Classes to make Main Container look awesome
+Build Secondary Component
+Build Movie List
+build Movie Card
+TMDB Image CDN URL
+Made the Browser page amazing with Tailwind CSS
+usePopularMovies Custom hook
+GPT Search Page
+GPT Search Bar
+(BONUS) Multi-language Feature in our App
+Get Open AI Api Key
+Gpt Search API Call
+fetched gptMoviesSuggestions from TMDB
+created gptSlice added data
+Resused Movie List component to make movie suggestion container
+Memoization
+Added .env file
+Adding .env file to gitignore
+Made our Site Responsive
+
+
+
+# TO Read
+- Firebase sign in / sign up methods 
+- useRefs() hook
+- aspect-video css property
+
+# Learning
+
+- https://chat.openai.com/share/36426f5f-9f98-4fc4-b06a-99448ff259bd

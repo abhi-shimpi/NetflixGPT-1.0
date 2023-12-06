@@ -7,7 +7,12 @@ const moviesSlice = createSlice({
         nowPlayingMovies :[],
         popular :[],
         topRated :[],
-        upcoming :[]
+        upcoming :[],
+        hindiMovies : [],
+        tamilMovies : [],
+        kanadaMovies : [],
+        malyalamMovies : [],
+        favouriteMovies : []
     },
     reducers : {
         addVideoTrailer : (state,action) => {
@@ -24,12 +29,43 @@ const moviesSlice = createSlice({
         },
         addUpcomingMovies : (state,action)=>{
             state.upcoming.push(action.payload);
+        },
+        addHindiMovies : (state,action)=>{
+            state.hindiMovies.push(action.payload);
+        },
+        addTamilMovies : (state,action)=>{
+            state.tamilMovies.push(action.payload);
+        },
+        addKanadaMovies : (state,action)=>{
+            state.kanadaMovies.push(action.payload);
+        },
+        addMalyalamMovies : (state,action)=>{
+            state.malyalamMovies.push(action.payload);
+        },
+        addFavouriteMovies : (state,action)=>{
+            state.favouriteMovies.push(action.payload);
+        },
+        removeFavouriteMovies : (state,action)=>{
+            state.favouriteMovies = state.favouriteMovies.filter((movie)=>{
+                return movie.imageId !== action.payload;
+            })
         }
-
     }
 });
 
-export const {addNowPlayingMovies,addPopularMovies,addTopRatedMovies,addUpcomingMovies,addVideoTrailer} = moviesSlice.actions;
+export const {
+    addNowPlayingMovies,
+    addPopularMovies,
+    addTopRatedMovies,
+    addUpcomingMovies,
+    addVideoTrailer,
+    addHindiMovies,
+    addTamilMovies,
+    addKanadaMovies,
+    addMalyalamMovies,
+    addFavouriteMovies,
+    removeFavouriteMovies
+} = moviesSlice.actions;
 
 export default moviesSlice.reducer;
 

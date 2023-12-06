@@ -24,11 +24,12 @@ function Login() {
 
         setErrorMessage(errorMessage);
 
-        // If there is error message it will return
+        // If there is error message it will return  , EARLY RETURN
         if (errorMessage) return;
 
         if (!isSignInForm) {
             // Sign Up
+            // onAuthChange is called when user sign up but it does get called when updateProfile is called
             createUserWithEmailAndPassword(
                 auth,
                 email.current.value,
@@ -37,10 +38,14 @@ function Login() {
                 .then((userCredential) => {
                     // Signed up 
                     // const user = userCredential.user;
+                    // This is to update profile with displayName
                     updateProfile(auth.currentUser, {
                         displayName: name.current.value
                       }).then(() => {
                         const { uid, email, displayName } = auth.currentUser;
+                        // That bug was coming bcz we are not updating displayname from here 
+                        // As soon as user sign up it calls onAuth Change but in that function it does not get displayName so 
+                        // it will store null so we need dispatch addUser from updateProfile function
                         dispatch(addUser({ uid, email, displayName }));
                       }).catch((error) => {
                         navigate("/error");
@@ -80,7 +85,6 @@ function Login() {
             <div className='absolute w-[30%] p-20 h-auto m-auto left-0 right-0 top-[25%] bg-black bg-opacity-70 rounded shadow-md text-white'>
                 <form className="text-white" onSubmit={(e) => { e.preventDefault(); handleSubmitForm() }}>
                     <h1 className='mb-6 text-3xl font-bold'>{isSignInForm ? "Sign In" : "Sign Up"}</h1>
-
                     {
                         !isSignInForm &&
                         <div className="mb-6">

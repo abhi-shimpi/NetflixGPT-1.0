@@ -7,3 +7,42 @@
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
 }
+
+.container-card {
+    width: 250px;
+    height: 290px;
+    /* border-radius: 25px; */
+    transform: scale(.9);
+    transition: .3s;
+    position: relative;
+    z-index: 1;
+}
+
+.container-card .card-container {
+    position: relative;
+    display: block;
+    z-index: 2;
+}
+
+.container-card .card-with-movie {
+    position: relative;
+    display: none;
+    z-index: 3;
+}
+
+.container-card:hover {
+    transform: scale(1.4);
+    z-index: 4;
+    overflow-y: hidden;
+} 
+
+.container-card:hover .card-with-movie{
+    display: block;
+    position: absolute;
+
+}  
+
+.container-card:hover .card-container{
+    display: none;
+}   
+

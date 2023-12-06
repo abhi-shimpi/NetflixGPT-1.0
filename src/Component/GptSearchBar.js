@@ -24,7 +24,7 @@ function GptSearchBar() {
 
 
   const handleGptSearch = () => {
-    console.log(searchText.current.value);
+    // console.log(searchText.current.value);
 
     const query = "Act as a movie recommendation sysytem and suggest some movies for the query" +
       searchText.current.value +
@@ -44,7 +44,7 @@ function GptSearchBar() {
       const moviesDataPromisesArray = movieNames.map((movieName) => {
         return fetchMoviesData(movieName);
       })
-      console.log(moviesDataPromisesArray);
+      // console.log(moviesDataPromisesArray);
 
       // We need to wait until all these promises get resolved
       const movieData = await Promise.all(moviesDataPromisesArray);

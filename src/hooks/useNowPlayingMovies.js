@@ -10,7 +10,7 @@ const useNowPlayingMovies = () => {
     const nowPlayingMovies = useSelector((store)=>store.moviesSlice.nowPlayingMovies);
 
     const fetchMoviesData = async () => {
-        const moviesData = await fetch('https://api.themoviedb.org/3/movie/now_playing?page=1', options)
+        const moviesData = await fetch('https://api.themoviedb.org/3/movie/now_playing?&page=1', options)
         const jsonData = await moviesData.json()
         // console.log(jsonData);
 

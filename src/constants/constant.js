@@ -2,6 +2,12 @@ export const app_logo = require("../assets/images/Netflix_Logo_PMS.png");
 
 export const login_bg_image = require('../assets/images/background_image.jpg');
 
+export const like_btn_img = require("../assets/images/like.png")
+export const dilike_btn_img = require("../assets/images/dislike_img.png")
+export const star_img = require("../assets/images/star.png")
+export const add_btn = require("../assets/images/add_btn.png")
+export const remove_btn = require("../assets/images/remove.png")
+
 export const options = {
     method: 'GET',
     headers: {
@@ -26,3 +32,13 @@ export const options = {
       name : "Marathi",
     }
   ];
+
+export const OPENAI_KEY =  process.env.REACT_APP_OPENAI_KEY
+
+export const langaugeWiseMovies = {
+  hindi : "hi",
+  kanada : "kn",
+  malyalam : "ml",
+  tamil : "ta"
+}
+
