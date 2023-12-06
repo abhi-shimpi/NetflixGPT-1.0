@@ -83,7 +83,7 @@ function Header() {
               }
             </select>
           }
-          <button className='p-2 rounded-md bg-gray-500 text-white' onClick={handleGptSearch}>{!gptSearch ? "GPT Search" : "HomePage"}</button>
+          <button className='p-2 rounded-md bg-gray-500 text-white' onClick={handleGptSearch}>Gpt Search</button>
           <button className='p-2 rounded-md bg-red-600 text-white' onClick={handleSignOut}>Sign Out</button>
         </div>
       }
