@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import { IMG_CDN_URL, like_btn_img, dilike_btn_img, star_img, add_btn, remove_btn, play_btn } from '../constants/constant'
+import React from 'react'
+import { IMG_CDN_URL, star_img, add_btn, remove_btn, play_btn } from '../constants/constant'
 import video from "../assets/dummy_trailer.mp4"
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import {addFavouriteMovies,removeFavouriteMovies} from "../utils/moviesSlice";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -11,7 +11,6 @@ import { useNavigate } from 'react-router-dom';
 function MovieCard({ imageId,movieId, title, rating, overview,showAddTo}) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const favouriteMovies = useSelector((store)=>store.moviesSlice.favouriteMovies)
 
   const notify = () => {
     toast.success('Movie added to favourites', {

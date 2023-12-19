@@ -33,7 +33,6 @@ function LanguageWiseMovies() {
         <MoviesList title={"Top Rated Movies"} moviesData={moviesData[2]?.results} />
         <MoviesList title={"Blockbuster Movies"} moviesData={moviesData[3]?.results} />
       </div>
-      LanguageWiseMovies
     </div>
   )
 }

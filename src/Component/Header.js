@@ -5,7 +5,7 @@ import { auth } from "../utils/firebaseConfiguration";
 import { app_logo, languagesArray } from "../constants/constant";
 import { toggleGptSearchView } from '../utils/gptSlice';
 import { changeLaguage } from '../utils/configureSlice';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import {  NavLink, useNavigate } from 'react-router-dom';
 import { langaugeWiseMovies } from '../constants/constant';
 import { addMoveiRoute } from '../utils/moviesSlice';
 

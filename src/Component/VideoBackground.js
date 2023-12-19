@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import { options } from '../constants/constant'
+import React from 'react'
 import useMovieTrailer from '../hooks/useMovieTrailer'
 import { useSelector } from 'react-redux';
 

@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import MovieCard from "./MovieCard";
 import "../index.css"
-import { useSelector } from 'react-redux';
 
 function MoviesList({ title, moviesData }) {
-  const favMovies = useSelector(store => store.moviesSlice.favouriteMovies);
   const handleMouseEnter = () => {
     // setIsMouseEnter(true);
   }
