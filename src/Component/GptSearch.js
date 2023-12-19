@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import GptSearchBar from './GptSearchBar'
 import GptSearchSuggetions from './GptSearchSuggetions'
 import { useDispatch } from 'react-redux'

@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 const useLanguageWiseMovies = () => {
     const dispatch = useDispatch();
     const {langId} = useParams();
-    console.log(langId)
+    // console.log(langId)
 
     const moviesData = useSelector((store) => {
         // Assuming you have a moviesSlice with language-specific data
@@ -44,7 +44,7 @@ const useLanguageWiseMovies = () => {
     const fetchNowPlayingMovies = async () =>{
         const movies = await fetch("https://api.themoviedb.org/3/discover/movie?api_key=009d356f2e927f0e77fc3ccfd395a7e5&with_original_language="+langId+"&page=1");
         const jsonData = await movies.json();
-        console.log(jsonData)
+        // console.log(jsonData)
 
         languageWiseActionsArray[langId](JSON.parse(JSON.stringify(jsonData)));
     }
@@ -52,7 +52,7 @@ const useLanguageWiseMovies = () => {
     const fetchtoRatedovies = async () =>{
         const movies = await fetch("https://api.themoviedb.org/3/discover/movie?api_key=009d356f2e927f0e77fc3ccfd395a7e5&with_original_language="+langId+"&page=2");
         const jsonData = await movies.json();
-        console.log(jsonData)
+        // console.log(jsonData)
 
 
         languageWiseActionsArray[langId](JSON.parse(JSON.stringify(jsonData)));
@@ -61,7 +61,7 @@ const useLanguageWiseMovies = () => {
     const fetchPopularMovies = async () =>{
         const movies = await fetch("https://api.themoviedb.org/3/discover/movie?api_key=009d356f2e927f0e77fc3ccfd395a7e5&with_original_language="+langId+"&page=3");
         const jsonData = await movies.json();
-        console.log(jsonData)
+        // console.log(jsonData)
 
 
         languageWiseActionsArray[langId](JSON.parse(JSON.stringify(jsonData)));
@@ -70,14 +70,14 @@ const useLanguageWiseMovies = () => {
     const fetchTopRatedMovies = async () =>{
         const movies = await fetch("https://api.themoviedb.org/3/discover/movie?api_key=009d356f2e927f0e77fc3ccfd395a7e5&with_original_language="+langId+"&page=4");
         const jsonData = await movies.json();
-        console.log(jsonData)
+        // console.log(jsonData)
 
 
         languageWiseActionsArray[langId](JSON.parse(JSON.stringify(jsonData)));
     }
 
     useEffect(()=>{
-        console.log("length",moviesData.length)
+        // console.log("length",moviesData.length)
         !moviesData.length && fetchNowPlayingMovies();
         !moviesData.length&& fetchtoRatedovies();
         !moviesData.length&&fetchPopularMovies();

@@ -13,7 +13,6 @@ const useUpcomingMovies = () => {
     const fetchMoviesData = async () => {
         const moviesData = await fetch('https://api.themoviedb.org/3/movie/upcoming?page=1', options)
         const jsonData = await moviesData.json()
-        // console.log(jsonData);
 
         // Adding movies data to movies slice
          dispatch(addUpcomingMovies(jsonData));

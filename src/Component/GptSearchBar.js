@@ -5,7 +5,7 @@ import openai from '../utils/openai';
 import { login_bg_image, options } from '../constants/constant';
 import MovieCard from './MovieCard';
 import ShimmerUi from './ShimmerUi';
-import { addMoviesData } from '../utils/gptSlice';
+import { addMoviesData, addSearchStatus } from '../utils/gptSlice';
 
 function GptSearchBar() {
 
@@ -18,14 +18,13 @@ function GptSearchBar() {
   const fetchMoviesData = async (movieName) => {
     const movieData = await fetch("https://api.themoviedb.org/3/search/movie?query=" + movieName + "&include_adult=false&language=en-US&page=1", options);
     const jsonData = await movieData.json();
-    // console.log(jsonData);
     return jsonData.results;
   }
 
 
   const handleGptSearch = () => {
     // console.log(searchText.current.value);
-
+    dispatch(addSearchStatus(true));
     const query = "Act as a movie recommendation sysytem and suggest some movies for the query" +
       searchText.current.value +
       ".Only give me name of five movies,comma seperated like an example result given ahead.Example: Pursuit of hapyness,Lakshya,Son of satymurthy,Docter,Master";
@@ -44,14 +43,13 @@ function GptSearchBar() {
       const moviesDataPromisesArray = movieNames.map((movieName) => {
         return fetchMoviesData(movieName);
       })
-      // console.log(moviesDataPromisesArray);
 
       // We need to wait until all these promises get resolved
       const movieData = await Promise.all(moviesDataPromisesArray);
       // console.log(moviesData);
 
       dispatch(addMoviesData({ movieData, movieNames }))
-
+      dispatch(addSearchStatus(false));
     }
 
     main();

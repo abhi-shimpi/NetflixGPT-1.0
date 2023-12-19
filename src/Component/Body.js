@@ -3,7 +3,7 @@ import Header from './Header';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../utils/firebaseConfiguration";
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addUser, removeUser } from '../utils/userSlice';
 import {  ToastContainer } from 'react-toastify';
 
@@ -11,6 +11,7 @@ import {  ToastContainer } from 'react-toastify';
 function Body() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const prevRoute = useSelector(store=>store.moviesSlice.movieRoute);
 
   useEffect(() => {
     // Observable
@@ -18,7 +19,7 @@ function Body() {
       if (user) {
         const { uid, email, displayName } = user;
         dispatch(addUser({ uid, email, displayName })) //For sign In
-        navigate("/browse");
+        navigate(prevRoute);
       } else {
         dispatch(removeUser());
         navigate("/");

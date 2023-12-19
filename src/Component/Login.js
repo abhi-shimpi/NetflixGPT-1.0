@@ -52,9 +52,9 @@ function Login() {
                       });
                 })
                 .catch((error) => {
-                    const errorCode = error.code;
+                    // const errorCode = error.code;
                     const errorMessage = error.message;
-                    setErrorMessage(errorCode + " " + errorMessage)
+                    setErrorMessage(errorMessage)
                 });
 
         } else {
@@ -66,7 +66,7 @@ function Login() {
                 })
                 .catch((error) => {
                     // const errorCode = error.code;
-                    const errorMessage = error.message;
+                    const errorMessage = "Invalid credentials";
                     setErrorMessage(errorMessage)
                 });
 
@@ -107,7 +107,8 @@ function Login() {
                 <div className='my-8'>
                     <p className='text-xl'>
                         {isSignInForm ? "Are you new user?" : "Already registered?"} <span className='cursor-pointer text-blue-500' onClick={() => {
-                            setIsSignInForm(!isSignInForm)
+                            setIsSignInForm(!isSignInForm);
+                            setErrorMessage("")
                         }}>{isSignInForm ? "Sign Up Now" : "Sign In Now"}</span>
                     </p>
                 </div>

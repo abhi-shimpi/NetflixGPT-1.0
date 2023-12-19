@@ -12,7 +12,9 @@ const moviesSlice = createSlice({
         tamilMovies : [],
         kanadaMovies : [],
         malyalamMovies : [],
-        favouriteMovies : []
+        favouriteMovies : [],
+        movieVideo : null,
+        movieRoute : "/browse",
     },
     reducers : {
         addVideoTrailer : (state,action) => {
@@ -49,6 +51,12 @@ const moviesSlice = createSlice({
             state.favouriteMovies = state.favouriteMovies.filter((movie)=>{
                 return movie.imageId !== action.payload;
             })
+        },
+        addMovieVideo : (state,action)=>{
+            state.movieVideo = action.payload;
+        },
+        addMoveiRoute : (state,action)=>{
+            state.movieRoute = action.payload;
         }
     }
 });
@@ -64,7 +72,9 @@ export const {
     addKanadaMovies,
     addMalyalamMovies,
     addFavouriteMovies,
-    removeFavouriteMovies
+    removeFavouriteMovies,
+    addMovieVideo,
+    addMoveiRoute
 } = moviesSlice.actions;
 
 export default moviesSlice.reducer;

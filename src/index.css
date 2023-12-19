@@ -10,10 +10,8 @@
 
 .container-card {
     width: 250px;
-    height: 290px;
+    /* height: 290px; */
     /* border-radius: 25px; */
-    transform: scale(.9);
-    transition: .3s;
     position: relative;
     z-index: 1;
 }
@@ -21,7 +19,7 @@
 .container-card .card-container {
     position: relative;
     display: block;
-    z-index: 2;
+    z-index: 999;
 }
 
 .container-card .card-with-movie {
@@ -31,14 +29,17 @@
 }
 
 .container-card:hover {
-    transform: scale(1.4);
     z-index: 4;
-    overflow-y: hidden;
+    position: relative;
 } 
 
 .container-card:hover .card-with-movie{
     display: block;
     position: absolute;
+    transform: scale(1.2);
+    transition: .5s;
+    top: 20px;
+    z-index: 99;
 
 }  
 
@@ -46,3 +47,39 @@
     display: none;
 }   
 
+
+/* Shimmer UI */
+.shimmer-card {
+    width: 280px;
+    height: 326px;
+    background-color: #bebbcf;
+}
+
+.loader-element {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #84838b;
+    margin-bottom: 2px;
+    overflow: hidden;
+}
+
+.loader-element::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(#84838b,#99999e,#84838b);
+    transform: rotate(130deg);
+    animation: shine 2s infinite;
+}
+
+@keyframes shine {
+    0% {
+        left:-100%;
+    }
+    100% {
+        left: 100%;
+    }
+}

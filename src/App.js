@@ -8,6 +8,7 @@ import {Provider} from "react-redux"
 import LanguageWiseMovies from './Component/LanguageWiseMovies';
 import FavouriteMovies from './Component/FavouriteMovies';
 import GptSearch from './Component/GptSearch';
+import Player from './Component/Player';
 
 const router = createBrowserRouter([
   {
@@ -34,8 +35,12 @@ const router = createBrowserRouter([
         path: "/my-list",
         element: <FavouriteMovies/>
       },
-    ]
-  }
+    ],
+  },
+  {
+    path: "/player/:id",
+    element: <Player/>
+  },
 ])
 
 function App() {

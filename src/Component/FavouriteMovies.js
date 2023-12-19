@@ -4,7 +4,6 @@ import MovieCard from './MovieCard';
 
 function FavouriteMovies() {
     const favouriteMovies = useSelector((store)=>store.moviesSlice.favouriteMovies)
-    console.log(favouriteMovies);
   return (
     <div className='pt-[120px] px-[100px]  bg-black flex flex-wrap h-screen'>
         {   

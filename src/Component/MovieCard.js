@@ -1,14 +1,17 @@
 import React, { useState } from 'react'
-import { IMG_CDN_URL, like_btn_img, dilike_btn_img, star_img, add_btn, remove_btn } from '../constants/constant'
+import { IMG_CDN_URL, like_btn_img, dilike_btn_img, star_img, add_btn, remove_btn, play_btn } from '../constants/constant'
 import video from "../assets/dummy_trailer.mp4"
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import {addFavouriteMovies,removeFavouriteMovies} from "../utils/moviesSlice";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
 
-function MovieCard({ imageId, title, rating, overview,showAddTo }) {
+function MovieCard({ imageId,movieId, title, rating, overview,showAddTo}) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const favouriteMovies = useSelector((store)=>store.moviesSlice.favouriteMovies)
 
   const notify = () => {
     toast.success('Movie added to favourites', {
@@ -26,7 +29,8 @@ function MovieCard({ imageId, title, rating, overview,showAddTo }) {
       imageId: imageId,
       title: title,
       rating: rating,
-      overview: overview
+      overview: overview,
+      
     }
     dispatch(addFavouriteMovies(objOfFavourites));
     notify();
@@ -34,14 +38,18 @@ function MovieCard({ imageId, title, rating, overview,showAddTo }) {
 
   const removeFromFavourite = () => {
     dispatch(removeFavouriteMovies(imageId));
-    toast.done('Movie removed from favourites', {
-      position: toast.POSITION.TOP_RIGHT,
-      autoClose: 1000, // Close the notification after 3000 milliseconds (3 seconds)
-      style: {
-        background: 'red', // Set your desired background color
-        color:'white'
-      },
-    });
+    // toast.done('Movie removed from favourites', {
+    //   position: toast.POSITION.TOP_RIGHT,
+    //   autoClose: 1000, // Close the notification after 3000 milliseconds (3 seconds)
+    //   style: {
+    //     background: 'red', // Set your desired background color
+    //     color:'white'
+    //   },
+    // });
+  }
+
+  const handleCardClick = () =>{
+    navigate(`/player/${movieId}`)
   }
 
   return (
@@ -68,9 +76,8 @@ function MovieCard({ imageId, title, rating, overview,showAddTo }) {
                       <span>{rating}</span>
                     </div>
                   </div>
-                  <div className='flex gap-2 py-3 items-center text-white'>
-                    <div className='w-7 h-7 cursor-pointer'><img className='w-full h-full' src={like_btn_img}></img></div>
-                    <div className='w-5 h-5 cursor-pointer'><img className='w-full h-full' src={dilike_btn_img}></img></div>
+                  <div className='flex gap-8 py-3 items-center text-white'>
+                    <div className='w-7 h-7 cursor-pointer' onClick={handleCardClick}><img className='w-full h-full' src={play_btn}></img></div>
                     {
                       showAddTo ? 
                       (<div className='pl-[72px] text-sm flex gap-2 items-center cursor-pointer' onClick={()=> {
@@ -90,7 +97,7 @@ function MovieCard({ imageId, title, rating, overview,showAddTo }) {
                       )
                     }
                   </div>
-                  <div className='text-white text-xs h-[180px] overflow-y-scroll scrollbar-hide text-justify'>
+                  <div className='text-white text-xs h-[100px] overflow-y-scroll scrollbar-hide text-justify'>
                     {overview}
                   </div>
                 </div>
