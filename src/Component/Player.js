@@ -22,7 +22,7 @@ function Player() {
     return (
       <div>
          <div className='absolute top-12 left-16 z-30 cursor-pointer' onClick={handleVideoClose}>  
-            <img className='image' src={left_arrow}></img>
+            <img className='image' src={left_arrow} alt='leftArrowImage'></img>
          </div>
           <iframe 
               className='w-full aspect-video'

@@ -59,7 +59,7 @@ function MovieCard({ imageId,movieId, title, rating, overview,showAddTo}) {
             (
               <div className='container-card' >
                 <div className='card-container'>
-                  <img className='w-full h-full' src={IMG_CDN_URL + imageId}></img>
+                  <img className='w-full h-full' src={IMG_CDN_URL + imageId} alt='movieImage'></img>
                 </div>
                 <div className='p-5 card-with-movie bg-black'>
                   <video className='w-full' autoPlay muted>
@@ -70,20 +70,20 @@ function MovieCard({ imageId,movieId, title, rating, overview,showAddTo}) {
                     <h2 className=' font-bold'>{title}</h2>
                     <div className='flex items-center gap-2'>
                       <div className='w-4 h-4'>
-                        <img className='w-full h-full' src={star_img}></img>
+                        <img className='w-full h-full' src={star_img} alt='starImage'></img>
                       </div>
                       <span>{rating}</span>
                     </div>
                   </div>
                   <div className='flex gap-8 py-3 items-center text-white'>
-                    <div className='w-7 h-7 cursor-pointer' onClick={handleCardClick}><img className='w-full h-full' src={play_btn}></img></div>
+                    <div className='w-7 h-7 cursor-pointer' onClick={handleCardClick}><img className='w-full h-full' src={play_btn} alt='PlayButtonImage'></img></div>
                     {
                       showAddTo ? 
                       (<div className='pl-[72px] text-sm flex gap-2 items-center cursor-pointer' onClick={()=> {
                         addToFavourite()
                       }}>
                         <span>Add To</span>
-                        <div className='w-5 h-5'><img className='w-full h-full' src={add_btn}></img></div>
+                        <div className='w-5 h-5'><img className='w-full h-full' src={add_btn} alt='addButtonImage'></img></div>
                       </div>) 
                       :
                       (
@@ -91,7 +91,7 @@ function MovieCard({ imageId,movieId, title, rating, overview,showAddTo}) {
                           removeFromFavourite()
                         }}>
                           <span>Remove</span>
-                          <div className='w-5 h-5'><img className='w-full h-full' src={remove_btn}></img></div>
+                          <div className='w-5 h-5'><img className='w-full h-full' src={remove_btn} alt='removeButtonImage'></img></div>
                         </div>
                       )
                     }

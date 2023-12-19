@@ -20,7 +20,7 @@ const useUpcomingMovies = () => {
 
     useEffect(() => {
         !upcomingMovies?.length && fetchMoviesData();
-    }, [])
+    }, [upcomingMovies])
 }
 
 export default useUpcomingMovies;

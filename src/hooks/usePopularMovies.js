@@ -20,7 +20,7 @@ const usePopularMovies = () => {
 
     useEffect(() => {
         !popularMovies?.length && fetchMoviesData();
-    }, [])
+    }, [popularMovies])
 }
 
 export default usePopularMovies;

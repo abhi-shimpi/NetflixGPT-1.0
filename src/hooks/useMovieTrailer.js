@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import { options } from "../constants/constant";
 import { useDispatch, useSelector } from "react-redux";
 import { addMovieVideo, addVideoTrailer } from "../utils/moviesSlice";
@@ -26,7 +26,7 @@ const useMovieTrailer = (movieId,type) =>{
         if(type === "trailer") !videoTrailer && fetchMovieVideo();
         if(type === "movie") !movieVideo && fetchMovieVideo();
 
-    },[movieId,type]);
+    },[movieId,type,videoTrailer,movieVideo]);
 }
 
 export default useMovieTrailer;

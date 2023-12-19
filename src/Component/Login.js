@@ -79,7 +79,7 @@ function Login() {
     return (
         <div className='relative'>
             <div>
-                <img className='w-full h-[100%] object-cover' src={login_bg_image} alt='abc'></img>
+                <img className='w-full h-[100%] object-cover' src={login_bg_image} alt='loginBackgroundImage'></img>
             </div>
             <div className="absolute inset-0 w-full h-[100%] bg-gradient-to-r from-black to-black opacity-50"></div>
             <div className='absolute w-[30%] p-20 h-auto m-auto left-0 right-0 top-[25%] bg-black bg-opacity-70 rounded shadow-md text-white'>

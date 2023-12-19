@@ -17,11 +17,11 @@ function VideoTitle({ title, overview ,movieId}) {
             <p className='w-[30%] mb-4' >{overview}</p>
             <div className='flex gap-3'>
                 <button onClick={handlePlay} className='py-2 px-5 rounded-md bg-white text-black flex gap-2 items-center hover:bg-opacity-60'>
-                    <img className='w-5' src={require("../assets/images/video_resume.png")}></img>
+                    <img className='w-5' src={require("../assets/images/video_resume.png")} alt='resumeImage'></img>
                     <span>Play</span>
                 </button>
                 <button className='py-2 px-5 rounded-md bg-[#b1adad] text-white bg-opacity-50 flex gap-2 items-center'>
-                    <img className='w-5' src={require("../assets/images/more_info.png")}></img>
+                    <img className='w-5' src={require("../assets/images/more_info.png")} alt='infoImage'></img>
                     <span>More Info</span>
                 </button>
             </div>

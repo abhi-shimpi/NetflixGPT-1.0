@@ -82,7 +82,7 @@ const useLanguageWiseMovies = () => {
         !moviesData.length&& fetchtoRatedovies();
         !moviesData.length&&fetchPopularMovies();
         !moviesData.length&&fetchTopRatedMovies();
-    },[langId])
+    },[langId,moviesData])
 }
 
 export default useLanguageWiseMovies;
