@@ -17,6 +17,7 @@
     "react-toastify": "^9.1.3",
     "web-vitals": "^2.1.4"
   },
+  "homepage": "https://github.com/abhi-shimpi/NetflixGPT",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build --no-warnings",
