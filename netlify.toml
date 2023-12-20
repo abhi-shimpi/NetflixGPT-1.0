@@ -1,0 +1,13 @@
+# netlify.toml
+
+[build]
+  command = "npm run build"
+  publish = "build"
+
+[context.production.environment]
+  NODE_ENV = "production"
+  REACT_APP_API_URL = "https://netflixgptwithreact.com"
+
+[context.branch-deploy]
+  command = "npm run build"
+  publish = "build"
