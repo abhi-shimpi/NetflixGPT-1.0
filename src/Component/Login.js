@@ -101,7 +101,7 @@ function Login() {
                     </div>
 
                     <div className='text-red-600 my-2 text-lg'>{errorMessage}</div>
-
+                    {!isSignInForm && <div className='text-sm pt-2 pb-3'>(password must start with capital letter and should consist of special character and number)</div>}
                     <button type="submit" className="w-full mt-2 px-4 py-2 bg-[#e50914] text-white rounded cursor-pointer text-xl">{isSignInForm ? "Login": "Sign Up"}</button>
                 </form>
                 <div className='my-8'>
