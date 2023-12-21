@@ -1,4 +1,4 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createHashRouter } from 'react-router-dom';
 import './App.css';
 import Body from './Component/Body';
 import Login from './Component/Login';
@@ -10,7 +10,7 @@ import FavouriteMovies from './Component/FavouriteMovies';
 import GptSearch from './Component/GptSearch';
 import Player from './Component/Player';
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: "/",
     element: <Body />,
