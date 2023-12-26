@@ -113,22 +113,22 @@ function Header() {
                 {
                   showList &&
                   <div className='absolute top-[3rem] right-5 flex bg-black p-6 gap-2 lg:flex md:gap-4 items-center flex-col'>
-                    <NavLink onClick={() => handleAddRoute('browse')} to={"/browse"} className={({ isActive }) => isActive ? 'text-red-600' : 'text-white'}>
+                    <NavLink onClick={() =>{ handleAddRoute('browse');setShowList(false)}} to={"/browse"} className={({ isActive }) => isActive ? 'text-red-600' : 'text-white'}>
                       <div className=' md:text-2xl cursor-pointer'>Home</div>
                     </NavLink>
-                    <NavLink onClick={() => handleAddRoute(langaugeWiseMovies.hindi)} to={"/language-wise-movies/" + langaugeWiseMovies.hindi} className={({ isActive }) => isActive ? 'text-red-600' : 'text-white'}>
+                    <NavLink onClick={() => {handleAddRoute(langaugeWiseMovies.hindi);setShowList(false)}} to={"/language-wise-movies/" + langaugeWiseMovies.hindi} className={({ isActive }) => isActive ? 'text-red-600' : 'text-white'}>
                       <div className='md:text-2xl cursor-pointer'>Hindi</div>
                     </NavLink>
-                    <NavLink onClick={() => handleAddRoute(langaugeWiseMovies.tamil)} to={"/language-wise-movies/" + langaugeWiseMovies.tamil} className={({ isActive }) => isActive ? 'text-red-600' : 'text-white'}>
+                    <NavLink onClick={() =>{ handleAddRoute(langaugeWiseMovies.tamil);setShowList(false)}} to={"/language-wise-movies/" + langaugeWiseMovies.tamil} className={({ isActive }) => isActive ? 'text-red-600' : 'text-white'}>
                       <div className='md:text-2xl cursor-pointer'>Tamil</div>
                     </NavLink >
-                    <NavLink onClick={() => handleAddRoute(langaugeWiseMovies.kanada)} to={"/language-wise-movies/" + langaugeWiseMovies.kanada} className={({ isActive }) => isActive ? 'text-red-600' : 'text-white'}>
+                    <NavLink onClick={() => {handleAddRoute(langaugeWiseMovies.kanada);setShowList(false)}} to={"/language-wise-movies/" + langaugeWiseMovies.kanada} className={({ isActive }) => isActive ? 'text-red-600' : 'text-white'}>
                       <div className='md:text-2xl cursor-pointer'>Kannada</div>
                     </NavLink>
-                    <NavLink onClick={() => handleAddRoute(langaugeWiseMovies.malyalam)} to={"/language-wise-movies/" + langaugeWiseMovies.malyalam} className={({ isActive }) => isActive ? 'text-red-600' : 'text-white'}>
+                    <NavLink onClick={() => {handleAddRoute(langaugeWiseMovies.malyalam);setShowList(false)}} to={"/language-wise-movies/" + langaugeWiseMovies.malyalam} className={({ isActive }) => isActive ? 'text-red-600' : 'text-white'}>
                       <div className='md:text-2xl cursor-pointer'>Malyalam</div>
                     </NavLink>
-                    <NavLink onClick={() => handleAddRoute('my-list')} to={"/my-list"} className={({ isActive }) => isActive ? 'text-red-600' : 'text-white'}>
+                    <NavLink onClick={() => {handleAddRoute('my-list');setShowList(false)}} to={"/my-list"} className={({ isActive }) => isActive ? 'text-red-600' : 'text-white'}>
                       <div className='md:text-2xl cursor-pointer'>My List</div>
                     </NavLink>
                     <div className='lg:block text-white' onClick={handleSignOut}>Sign Out</div>

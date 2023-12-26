@@ -11,13 +11,18 @@ function Login() {
 
     const [isSignInForm, setIsSignInForm] = useState(true);
     const [errorMessage, setErrorMessage] = useState("");
+    const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const email = useRef(null);
     const password = useRef(null);
     const name = useRef(null);
-
+    
+    const handleCheckboxChange = () => {
+        setShowPassword(!showPassword);
+      };
+      
     const handleSubmitForm = () => {
 
         const errorMessage = checkValidations(email.current.value, password.current.value);
@@ -97,8 +102,9 @@ function Login() {
                     </div>
 
                     <div className="mb-6">
-                        <input ref={password} type="password" id="password" name="password" placeholder="Enter your password" className="w-full px-6 py-4  text-white bg-[#333] rounded" required />
+                        <input ref={password} type={showPassword ? "text" : "password"} id="password" name="password" placeholder="Enter your password" className="w-full px-6 py-4  text-white bg-[#333] rounded" required />
                     </div>
+                    <input type='checkbox' onChange={()=>handleCheckboxChange()}/><span className='px-2'> Show password</span>
 
                     <div className='text-red-600 my-2 text-lg'>{errorMessage}</div>
                     {!isSignInForm && <div className='text-sm pt-2 pb-3'>(password must start with capital letter and should consist of special character and number)</div>}
