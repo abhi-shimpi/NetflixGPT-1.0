@@ -8,9 +8,9 @@ function VideoBackground({movieId}) {
   const videoTrailerKey = useSelector((strore)=>strore.moviesSlice.videoTrailer);
  
   return (
-    <div>
+    <div className='pt-10 md:pt-[3.25rem] xl:pt-[0rem]'>
         <iframe 
-            className='w-full aspect-video'
+            className='w-full aspect-video '
             src={"https://www.youtube.com/embed/"+
             videoTrailerKey +
             "?&autoplay=1"+

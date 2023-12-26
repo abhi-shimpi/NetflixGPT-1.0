@@ -54,11 +54,11 @@ function GptSearchBar() {
   }
   return (
     <>
-      <div className='absolute z-20 w-[50%] p-6 m-auto left-0 right-0 top-[15%] bg-black' onSubmit={(e) => { e.preventDefault() }}>
-        <input ref={searchText} className='w-[80%] p-4 mr-3 rounded-md' placeholder={constants[langKey]?.searchPlaceholder}></input>
-        <button className='py-4 w-[15%] px-8 bg-red-600 text-white rounded-md' onClick={handleGptSearch}>{constants[langKey]?.search}</button>
+      <div className='absolute flex flex-col sm:flex-row gap-2 items-center z-20 w-[90%] sm:w-[50%] p-6 m-auto left-0 right-0 top-[15%] bg-black rounded-lg' onSubmit={(e) => { e.preventDefault() }}>
+        <input ref={searchText} className='w-[100%] sm:w-[80%] p-4 mr-3 rounded-md' placeholder={constants[langKey]?.searchPlaceholder}></input>
+        <button className='py-2 px-2 sm:py-4 w-[30%] sm:w-[20%] md:w-[30%] sm:px-8 bg-red-600 text-white rounded-md' onClick={handleGptSearch}>{constants[langKey]?.search}</button>
       </div>
-      <img className='fixed top-0' src={login_bg_image} alt="SearchPageImage"></img>
+      <img className='md:w-full h-[100vh] object-cover relative' src={login_bg_image} alt="SearchPageImage"></img>
     </>
   )
 }

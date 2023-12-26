@@ -4,8 +4,10 @@
 
 /* For IE, Edge and Firefox */
 .scrollbar-hide {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
 }
 
 .container-card {
@@ -31,9 +33,9 @@
 .container-card:hover {
     z-index: 4;
     position: relative;
-} 
+}
 
-.container-card:hover .card-with-movie{
+.container-card:hover .card-with-movie {
     display: block;
     position: absolute;
     transform: scale(1.2);
@@ -41,11 +43,11 @@
     top: 20px;
     z-index: 99;
 
-}  
+}
 
-.container-card:hover .card-container{
+.container-card:hover .card-container {
     display: none;
-}   
+}
 
 
 /* Shimmer UI */
@@ -70,16 +72,34 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background: linear-gradient(#84838b,#99999e,#84838b);
+    background: linear-gradient(#84838b, #99999e, #84838b);
     transform: rotate(130deg);
     animation: shine 2s infinite;
 }
 
 @keyframes shine {
     0% {
-        left:-100%;
+        left: -100%;
     }
+
     100% {
         left: 100%;
+    }
+}
+
+@media (max-width:500px) {
+    .container-card {
+        width: 145px;
+    }
+
+    .container-card:hover .card-with-movie {
+        display: block;
+        position: absolute;
+        transform: scale3d(1.0, 0.8, -7.2);        
+        transition: .5s;
+        top: -80px;
+        left: -33px;
+        z-index: 99;
+
     }
 }

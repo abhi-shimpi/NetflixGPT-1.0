@@ -14,7 +14,7 @@ const MainContainer = () => {
     const id = movieDetails?.nowPlayingMovies[0]?.results[2]?.id;
     // console.log("movie id",id)
   return (
-    <div>
+    <div >
         <VideoTitle title={title} overview={overview} movieId={id}/>
         <VideoBackground movieId={id}/>
     </div>

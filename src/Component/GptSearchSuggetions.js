@@ -10,14 +10,18 @@ function GptSearchSuggetions() {
 
   if (isSearched) {
     return (
-      <div className='bg-black w-[90%] m-auto left-0 right-0 absolute top-[30%]'>
+      <div className='bg-black w-[90%] h-[67%] m-auto overflow-y-auto left-0 right-0 absolute top-[30%]'>
         <ShimmerUi />
       </div>
     )
   }
 
+  if(!movieNames?.length) {
+    return <></>
+  }
+
   return (
-    <div className='bg-black w-[90%] m-auto left-0 right-0 absolute top-[30%] overflow-x-auto bg-opacity-80'>
+    <div className='bg-black w-[90%] mt-5 sm:mt-1 overflow-y-auto h-[67%] m-auto left-0 right-0 absolute top-[30%] overflow-x-auto bg-opacity-80 rounded-xl scrollbar-hide'>
       {
         movieNames?.map((movieName, index) => {
           return <MoviesList key={movieName} title={movieName} moviesData={movieData[index]} />

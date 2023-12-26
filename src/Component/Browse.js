@@ -22,7 +22,7 @@ function Browse() {
           (<GptSearch />) :
           (
             <>
-              <div>
+              <div className='bg-black'>
                 <MainContainer />
                 <SecondaryContainer />
               </div >

@@ -79,10 +79,10 @@ function Login() {
     return (
         <div className='relative'>
             <div>
-                <img className='w-full h-[100%] object-cover' src={login_bg_image} alt='loginBackgroundImage'></img>
+                <img className='md:w-full h-[100vh] object-cover relative' src={login_bg_image} alt='loginBackgroundImage'></img>
             </div>
             <div className="absolute inset-0 w-full h-[100%] bg-gradient-to-r from-black to-black opacity-50"></div>
-            <div className='absolute w-[30%] p-20 h-auto m-auto left-0 right-0 top-[25%] bg-black bg-opacity-70 rounded shadow-md text-white'>
+            <div className='w-[85%] md:w-[70%] p-6 box-border sm:p-10 top-[9%] absolute lg:w-[40%] xl:w-[30%] md:p-8 2xl:p-20 h-auto m-auto left-0 right-0 lg:top-[10%] xl:top-[15%] bg-black bg-opacity-70 rounded shadow-md text-white'>
                 <form className="text-white" onSubmit={(e) => { e.preventDefault(); handleSubmitForm() }}>
                     <h1 className='mb-6 text-3xl font-bold'>{isSignInForm ? "Sign In" : "Sign Up"}</h1>
                     {
@@ -104,8 +104,8 @@ function Login() {
                     {!isSignInForm && <div className='text-sm pt-2 pb-3'>(password must start with capital letter and should consist of special character and number)</div>}
                     <button type="submit" className="w-full mt-2 px-4 py-2 bg-[#e50914] text-white rounded cursor-pointer text-xl">{isSignInForm ? "Login": "Sign Up"}</button>
                 </form>
-                <div className='my-8'>
-                    <p className='text-xl'>
+                <div className='my-9 xl:my-8 md:my-4'>
+                    <p className='text-sm  lg:text-xl'>
                         {isSignInForm ? "Are you new user?" : "Already registered?"} <span className='cursor-pointer text-blue-500' onClick={() => {
                             setIsSignInForm(!isSignInForm);
                             setErrorMessage("")

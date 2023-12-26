@@ -9,6 +9,7 @@ export const add_btn = require("../assets/images/add_btn.png")
 export const remove_btn = require("../assets/images/remove.png")
 export const left_arrow = require("../assets/images/left_arrow_img_white.png")
 export const play_btn = require("../assets/images/play_button_img.png")
+export const hamburger_icon = require("../assets/images/hamburger_icon.png")
 
 export const options = {
     method: 'GET',

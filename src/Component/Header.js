@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { signOut } from "firebase/auth";
 import { auth } from "../utils/firebaseConfiguration";
-import { app_logo, languagesArray } from "../constants/constant";
+import { app_logo, hamburger_icon, languagesArray } from "../constants/constant";
 import { toggleGptSearchView } from '../utils/gptSlice';
 import { changeLaguage } from '../utils/configureSlice';
-import {  NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { langaugeWiseMovies } from '../constants/constant';
 import { addMoveiRoute } from '../utils/moviesSlice';
 
@@ -16,6 +16,7 @@ function Header() {
   const langKey = useSelector((store) => store.configureSlice.language);
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [showList, setShowList] = useState(false);
 
   const handleSignOut = () => {
     signOut(auth).then(() => {
@@ -54,12 +55,12 @@ function Header() {
         userDetails &&
         <div className='fixed w-full flex justify-between px-4 py-2 items-center z-50 bg-black bg-opacity-50 '>
           <div className='flex gap-14 items-center'>
-            <div className='w-[11.5rem] h-[6rem]'>
-              <img className='w-[100%] h-[100%] cursor-pointer' onClick={showHomePage} src={app_logo} alt='Netflix logo'></img>
+            <div className='w-[7.5rem] h-[3rem] md:w-[11.5rem] md:h-[6rem]'>
+              <img className='w-[100%] h-[100%] cursor-pointer' src={app_logo} alt='Netflix logo'></img>
             </div>
             {
               !gptSearch &&
-              <div className='flex gap-14 items-center'>
+              <div className='hidden lg:flex gap-14 items-center'>
                 <NavLink onClick={() => handleAddRoute('browse')} to={"/browse"} className={({ isActive }) => isActive ? 'text-red-600' : 'text-white'}>
                   <div className=' text-2xl cursor-pointer'>Home</div>
                 </NavLink>
@@ -96,10 +97,44 @@ function Header() {
               }
               {
                 !gptSearch ?
-                  (<button className='p-2 rounded-md bg-gray-500 text-white' onClick={handleGptSearch}>Gpt Search</button>) :
+                  (<button className='text-sm p-2 rounded-md bg-gray-500 text-white' onClick={handleGptSearch}>Gpt Search</button>) :
                   (<button className='p-2 rounded-md bg-gray-500 text-white' onClick={showHomePage}>Home</button>)
               }
-              <button className='p-2 rounded-md bg-red-600 text-white' onClick={handleSignOut}>Sign Out</button>
+              <button className='hidden lg:block p-2 rounded-md bg-red-600 text-white' onClick={handleSignOut}>Sign Out</button>
+            </div>
+          }
+          {
+            !gptSearch &&
+            <div className='block lg:hidden'>
+              <div className='w-[2rem] h-[2rem] md:w-10 md:h-10' onClick={() => setShowList(!showList)}>
+                <img className='image' src={hamburger_icon} alt="hamburgerIcon"></img>
+              </div>
+              <div>
+                {
+                  showList &&
+                  <div className='absolute top-[3rem] right-5 flex bg-black p-6 gap-2 lg:flex md:gap-4 items-center flex-col'>
+                    <NavLink onClick={() => handleAddRoute('browse')} to={"/browse"} className={({ isActive }) => isActive ? 'text-red-600' : 'text-white'}>
+                      <div className=' md:text-2xl cursor-pointer'>Home</div>
+                    </NavLink>
+                    <NavLink onClick={() => handleAddRoute(langaugeWiseMovies.hindi)} to={"/language-wise-movies/" + langaugeWiseMovies.hindi} className={({ isActive }) => isActive ? 'text-red-600' : 'text-white'}>
+                      <div className='md:text-2xl cursor-pointer'>Hindi</div>
+                    </NavLink>
+                    <NavLink onClick={() => handleAddRoute(langaugeWiseMovies.tamil)} to={"/language-wise-movies/" + langaugeWiseMovies.tamil} className={({ isActive }) => isActive ? 'text-red-600' : 'text-white'}>
+                      <div className='md:text-2xl cursor-pointer'>Tamil</div>
+                    </NavLink >
+                    <NavLink onClick={() => handleAddRoute(langaugeWiseMovies.kanada)} to={"/language-wise-movies/" + langaugeWiseMovies.kanada} className={({ isActive }) => isActive ? 'text-red-600' : 'text-white'}>
+                      <div className='md:text-2xl cursor-pointer'>Kannada</div>
+                    </NavLink>
+                    <NavLink onClick={() => handleAddRoute(langaugeWiseMovies.malyalam)} to={"/language-wise-movies/" + langaugeWiseMovies.malyalam} className={({ isActive }) => isActive ? 'text-red-600' : 'text-white'}>
+                      <div className='md:text-2xl cursor-pointer'>Malyalam</div>
+                    </NavLink>
+                    <NavLink onClick={() => handleAddRoute('my-list')} to={"/my-list"} className={({ isActive }) => isActive ? 'text-red-600' : 'text-white'}>
+                      <div className='md:text-2xl cursor-pointer'>My List</div>
+                    </NavLink>
+                    <div className='lg:block text-white' onClick={handleSignOut}>Sign Out</div>
+                  </div>
+                }
+              </div>
             </div>
           }
         </div>
