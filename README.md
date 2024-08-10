@@ -20,9 +20,6 @@ This project is a Netflix UI clone that offers a sleek and responsive interface,
 - **Memoization:** Utilized to optimize performance by reusing previously computed data, reducing unnecessary re-renders.
 - **Custom Hooks:** Implemented for reusability and cleaner, more maintainable code.
 
----
-
-You can adjust or expand on this as needed to fit your specific project and audience.
 
 [screen-capture (2).webm](https://github.com/user-attachments/assets/7189771c-8ec0-42da-8b62-eebf21ed52e3)
 
